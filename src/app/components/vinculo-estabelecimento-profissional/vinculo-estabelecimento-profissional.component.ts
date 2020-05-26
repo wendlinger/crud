@@ -27,13 +27,13 @@ export class VinculoEstabelecimentoProfissionalComponent implements OnInit {
 
   findAllProfissionais(): void {
     this.profissionalService.findAll().subscribe(res => {
-      this.profissionais = res
+      this.profissionais = res.object
     })
   }
 
   findAllEstabelecimentos(): void {
     this.estabelecimentoService.findAll().subscribe(res => {
-      this.profissionais = res
+      this.estabelecimentos = res.object
     })
   }
 

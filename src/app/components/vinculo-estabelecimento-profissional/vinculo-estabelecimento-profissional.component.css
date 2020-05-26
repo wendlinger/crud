@@ -8,6 +8,11 @@ form {
     margin-top: 20px;
 }
 
+.label-estabelecimento{
+    margin: 20px;
+    width: 100px;
+}
+
 button {
     margin: 20px 15px 0px 0px;
 }
