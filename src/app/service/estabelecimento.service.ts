@@ -11,7 +11,7 @@ import { Observable, EMPTY } from 'rxjs';
 })
 export class EstabelecimentoService {
  
-  baseUrl = "http://localhost:8080/estabelecimento";
+  baseUrl = "http://localhost:8080/app/estabelecimento";
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 

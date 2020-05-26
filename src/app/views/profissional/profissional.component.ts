@@ -16,7 +16,7 @@ export class ProfissionalComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.findAll().subscribe(res => {      
-      this.profissionais = res
+      this.profissionais = res.object
     })
   }
   

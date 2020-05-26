@@ -16,7 +16,7 @@ export class EstabelecimentoComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.findAll().subscribe(res => {
-      this.estabelecimentos = res
+      this.estabelecimentos = res.object
     })
   }
 }

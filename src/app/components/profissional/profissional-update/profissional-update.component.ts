@@ -16,9 +16,9 @@ export class ProfissionalUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get("id");
-    this.service.findById(id).subscribe((profissional) => {
-      this.profissional = profissional
-      console.log(profissional)
+    this.service.findById(id).subscribe((res) => {
+      this.profissional = res.object
+      console.log(res)
     });
   }
 

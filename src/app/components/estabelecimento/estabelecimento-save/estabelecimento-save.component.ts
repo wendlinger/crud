@@ -10,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class EstabelecimentoSaveComponent implements OnInit {
 
-  estabelecimento: Estabelecimento
+  estabelecimento = {
+    nome:'',
+    endereco:''
+  }
 
   constructor(private service: EstabelecimentoService, private router: Router) { }
 

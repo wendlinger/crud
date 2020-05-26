@@ -10,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ProfissionalSaveComponent implements OnInit {
 
-  profissional: Profissional
+  profissional = {
+    nome:'',
+    endereco:''
+  }
 
   constructor(private service: ProfissionalService, private router: Router) { }
 

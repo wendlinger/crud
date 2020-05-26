@@ -17,7 +17,7 @@ export class EstabelecimentoDeleteComponent implements OnInit {
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.service.findById(id).subscribe((res) => {
-      this.estabelecimento = res
+      this.estabelecimento = res.object
     });
   }
 

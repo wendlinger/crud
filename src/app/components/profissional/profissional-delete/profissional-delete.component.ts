@@ -16,8 +16,8 @@ export class ProfissionalDeleteComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.service.findById(id).subscribe((profissional) => {
-      this.profissional = profissional
+    this.service.findById(id).subscribe((res) => {
+      this.profissional = res.object
     });
   }
 

@@ -1,5 +1,5 @@
 export interface Profissional {
     id?: number
     nome: string
-    endereco: string        
+    endereco: string
 }
