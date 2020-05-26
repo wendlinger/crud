@@ -1,0 +1,32 @@
+<mat-toolbar class="header mat-elevation-z4">
+    <mat-toolbar-row>
+        <span>
+            <a routerLink="/">
+                <img class="logo" src="assets/CRUD.png" alt="logo">
+            </a>
+        </span>
+        <span class="menu-profissional">
+            <mat-menu #appMenuProfissional="matMenu">
+                <button mat-menu-item (click)="navigateToProfissionalSave()">Cadastrar</button>
+                <button mat-menu-item (click)="navigateToProfissional()">Listar</button>
+                <button mat-menu-item (click)="navigateToVincularEstabelecimentoProfissional()">Vincular estabelecimento</button>
+            </mat-menu>
+
+            <button mat-icon-button [matMenuTriggerFor]="appMenuProfissional">
+                <i class="material-icons">person</i>
+                <a>PROFISISONAL</a>
+            </button>
+        </span>
+        <span class="menu-estabelecimento">
+            <mat-menu #appMenuEstabelecimento="matMenu">
+                <button mat-menu-item (click)="navigateToEstabelecimentoSave()">Cadastrar</button>
+                <button mat-menu-item (click)="navigateToEstabelecimento()">Listar</button>
+                <button mat-menu-item (click)="navigateToVincularEstabelecimentoProfissional()">Vincular profissional</button>
+            </mat-menu>
+            <button mat-icon-button [matMenuTriggerFor]="appMenuEstabelecimento">
+                <i class="material-icons">apartment</i>
+                <a>ESTABELECIMENTO</a>
+            </button>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>

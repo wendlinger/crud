@@ -1,0 +1,22 @@
+.header .logo {
+    max-height: 40px;
+}
+
+.header .menu-profissional{    
+    padding-right: 120px;
+}
+
+.header .menu-estabelecimento{
+    padding-right: 120px;
+}
+
+.header mat-icon {
+    padding-right: 5px;
+}
+
+.header span{
+    padding-right: 40px;
+}
+
+
+

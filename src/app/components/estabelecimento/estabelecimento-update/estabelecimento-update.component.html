@@ -1,0 +1,20 @@
+<mat-card class="card">
+    <mat-card-title>Alterar cadastro Estabelecimento</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome"
+                [(ngModel)]="estabelecimento.nome" name="nome">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Endereco"
+                [(ngModel)]="estabelecimento.endereco" name="endereco">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="updateEstabelecimento()" color="primary">
+        Atualizar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
