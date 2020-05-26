@@ -1,4 +1,3 @@
-import { Estabelecimento } from './../../../model/estabelecimento.model';
 import { Component, OnInit } from '@angular/core';
 import { EstabelecimentoService } from 'src/app/service/estabelecimento.service';
 import { Router } from '@angular/router';
@@ -12,7 +11,7 @@ export class EstabelecimentoSaveComponent implements OnInit {
 
   estabelecimento = {
     nome:'',
-    endereco:''
+    endereco:'',
   }
 
   constructor(private service: EstabelecimentoService, private router: Router) { }

@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, EMPTY } from 'rxjs';
+import { ResponseTO } from '../model/response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,45 +25,40 @@ export class EstabelecimentoService {
     });
   }
 
-  save(estabelecimento: Estabelecimento): Observable<Estabelecimento> {
-    return this.http.post<Estabelecimento>(this.baseUrl, estabelecimento).pipe(
-      map((obj) => obj),
+  save(estabelecimento: Estabelecimento): Observable<ResponseTO> {
+    return this.http.post<ResponseTO>(this.baseUrl, estabelecimento).pipe(      
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  findAll(): Observable<Estabelecimento[]> {
-    return this.http.get<Estabelecimento[]>(this.baseUrl).pipe(
-      map((obj) => obj),
+  findAll(): Observable<ResponseTO> {
+    return this.http.get<ResponseTO>(this.baseUrl).pipe(      
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  findById(id: number): Observable<Estabelecimento> {
+  findById(id: number): Observable<ResponseTO> {
     const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Estabelecimento>(url).pipe(
-      map((obj) => obj),
+    return this.http.get<ResponseTO>(url).pipe(      
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  update(estabelecimento: Estabelecimento): Observable<Estabelecimento> {   
-    return this.http.put<Estabelecimento>(this.baseUrl, estabelecimento).pipe(
-      map((obj) => obj),
+  update(estabelecimento: Estabelecimento): Observable<ResponseTO> {   
+    return this.http.put<ResponseTO>(this.baseUrl, estabelecimento).pipe(      
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  delete(id: number): Observable<Estabelecimento> {
+  delete(id: number): Observable<ResponseTO> {
     const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<Estabelecimento>(url).pipe(
-      map((obj) => obj),
+    return this.http.delete<ResponseTO>(url).pipe(      
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  errorHandler(e: any): Observable<any> {
-    this.showMessage("Ocorreu um erro!", true);
+  errorHandler(e: ResponseTO): Observable<ResponseTO> {
+    this.showMessage(e.messages, true);
     return EMPTY;
   }
 }

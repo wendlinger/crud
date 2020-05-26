@@ -1,5 +1,7 @@
-export interface Estabelecimento {
-    id: number
+export class Estabelecimento {
+    id?: number
     nome: string
     endereco: string
+
+    constructor() { }
 }

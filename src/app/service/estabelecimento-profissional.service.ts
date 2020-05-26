@@ -5,13 +5,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, EMPTY } from 'rxjs';
+import { ResponseTO } from '../model/response.model';
+import { EstabelecimentoProfissional } from '../model/estabelecimento-profissional';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EstabelecimentoProfissionalService {
   
-  baseUrl = "http://localhost:8080/app/estabelecimento";
+  baseUrl = "http://localhost:8080/app/estabecimento/";
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
@@ -23,47 +25,16 @@ export class EstabelecimentoProfissionalService {
       panelClass: isError ? ["msg-error"] : ["msg-success"],
     });
   }
-
-  save(estabelecimento: Estabelecimento): Observable<Estabelecimento> {
-    return this.http.post<Estabelecimento>(this.baseUrl, estabelecimento).pipe(
-      map((obj) => obj),
+  
+  vincular(vincular: EstabelecimentoProfissional): Observable<ResponseTO> {
+    const url = `${this.baseUrl}/${vincular.estabelecimentoId}/profissional/${vincular.profissionalId}`;
+    return this.http.put<ResponseTO>(url, Response).pipe(
       catchError((e) => this.errorHandler(e))
     );
-  }
+  }  
 
-  findAll(): Observable<Estabelecimento[]> {
-    return this.http.get<Estabelecimento[]>(this.baseUrl).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
-  }
-
-  findById(id: number): Observable<Estabelecimento> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Estabelecimento>(url).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
-  }
-
-  update(estabelecimento: Estabelecimento): Observable<Estabelecimento> {
-    const url = `${this.baseUrl}/${estabelecimento.id}`;
-    return this.http.put<Estabelecimento>(url, estabelecimento).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
-  }
-
-  delete(id: number): Observable<Estabelecimento> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<Estabelecimento>(url).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
-  }
-
-  errorHandler(e: any): Observable<any> {
-    this.showMessage("Ocorreu um erro!", true);
+  errorHandler(e: ResponseTO): Observable<ResponseTO> {
+    this.showMessage(e.messages, true);
     return EMPTY;
   }
 }

@@ -1,25 +1,22 @@
-<mat-card class="card">
-  <mat-card-title>Vincular Profissional à Estabelecimento</mat-card-title>
-
-</mat-card>
-
+<title>Vincular Profissional à Estabelecimento</title>
 <div class="container">
   <div class="row">
     <div class=".col-8">
       <label>Profissional</label>
-      <select class="form-control form-control-lg" (click)="findAllProfissionais()">
-        <option *ngFor="let profissional of profissionais">{{ profissional.nome }}</option>
+      <select class="form-control form-control-lg" [(ngModel)]="vinculacao.profissionalId">
+        <option *ngFor="let profissional of profissionais" [value]="profissional.id">{{ profissional.nome }}</option>
       </select>
     </div>
     <div class=".col">
-      <label>Estabelecimentos</label>      
-      <select class="form-control form-control-lg" (click)="findAllEstabelecimentos()">
-        <option class="label-estabelecimentos" *ngFor="let estabelecimento of estabelecimentos">{{ estabelecimento.nome }}</option>
-      </select>    
+      <label>Estabelecimentos</label>
+      <select class="form-control form-control-lg" [(ngModel)]="vinculacao.estabelecimentoId">
+        <option class="label-estabelecimentos" *ngFor="let estabelecimento of estabelecimentos"
+          [value]="estabelecimento.id">{{ estabelecimento.nome }}</option>
+      </select>
     </div>
-    
+
     <div class=".col">
-      <button mat-raised-button (click)="associar()" color="primary">
+      <button mat-raised-button (click)="vincular()" color="primary">
         Vincular
       </button>
 

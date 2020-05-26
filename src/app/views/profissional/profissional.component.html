@@ -16,6 +16,11 @@
       <td mat-cell *matCellDef="let row">{{row.endereco}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="estabelecimento">
+      <th mat-header-cell *matHeaderCellDef>Estabelecimento Profissional</th>
+      <td mat-cell *matCellDef="let row">{{row.estabelecimento?.nome}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
       <td mat-cell *matCellDef="let row">

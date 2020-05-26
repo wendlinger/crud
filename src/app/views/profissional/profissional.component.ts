@@ -10,14 +10,13 @@ import { ProfissionalService } from 'src/app/service/profissional.service';
 export class ProfissionalComponent implements OnInit {
 
   profissionais: Profissional[]
-  displayedColumns = ['id', 'nome', 'endereco', 'action']
+  displayedColumns = ['id', 'nome', 'endereco', 'estabelecimento', 'action']
 
   constructor(private service: ProfissionalService) { }
 
   ngOnInit(): void {
-    this.service.findAll().subscribe(res => {      
+    this.service.findAll().subscribe(res => {
       this.profissionais = res.object
     })
   }
-  
 }

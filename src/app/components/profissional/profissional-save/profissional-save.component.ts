@@ -12,7 +12,7 @@ export class ProfissionalSaveComponent implements OnInit {
 
   profissional = {
     nome:'',
-    endereco:''
+    endereco:''    
   }
 
   constructor(private service: ProfissionalService, private router: Router) { }
