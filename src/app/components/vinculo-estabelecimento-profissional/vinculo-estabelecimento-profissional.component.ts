@@ -24,9 +24,9 @@ export class VinculoEstabelecimentoProfissionalComponent implements OnInit {
     private estabelecimentoService: EstabelecimentoService,
     private service: EstabelecimentoProfissionalService,
     private router: Router
-    ) { }
+  ) { }
 
-  ngOnInit(): void {     
+  ngOnInit(): void {
     this.profissionalService.findAll().subscribe(res => {
       this.profissionais = res.object
     })
@@ -34,18 +34,16 @@ export class VinculoEstabelecimentoProfissionalComponent implements OnInit {
       this.estabelecimentos = res.object
     })
 
-  }  
+  }
 
   vincular(): void {
-    this.service.vincular(this.vinculacao).subscribe(()=> {
+    this.service.vincular(this.vinculacao).subscribe(() => {
       this.service.showMessage("Profissional atualizado com sucesso!");
       this.router.navigate(["/profissional"]);
-    }, (res: ResponseTO) => {
-      this.service.showMessage(res.messages)
     })
   }
 
   cancel(): void {
-    this.router.navigate(["/estabelecimento"]);
+    this.router.navigate(["/profissional"]);
   }
 }

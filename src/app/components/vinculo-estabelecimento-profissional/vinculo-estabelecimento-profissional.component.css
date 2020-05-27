@@ -13,6 +13,10 @@ form {
     width: 100px;
 }
 
+.container {
+    margin: 10px;
+}
+
 button {
     margin: 20px 15px 0px 0px;
 }

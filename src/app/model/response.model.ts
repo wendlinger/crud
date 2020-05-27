@@ -1,5 +1,5 @@
 export class ResponseTO {
-    messages: string;
+    messages: any;
     object: any;
     sucess: boolean;
 
